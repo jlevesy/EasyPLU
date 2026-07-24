@@ -1,0 +1,101 @@
+{{define "page:title"}}EasyPLU — Votre assistant Plan Local d'Urbanisme{{end}}
+
+{{define "page:content"}}
+<div class="h-screen flex flex-col items-center justify-center px-4 py-12">
+    <div class="max-w-2xl w-full space-y-8 text-center">
+        <!-- Logo + Title -->
+        <div class="space-y-4">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-amber-500 shadow-lg shadow-amber-500/20 mb-2">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                </svg>
+            </div>
+            <h1 class="font-display text-4xl sm:text-5xl font-bold text-slate-800 tracking-tight">
+                EasyPLU
+            </h1>
+            <p class="text-lg sm:text-xl text-slate-500 leading-relaxed max-w-xl mx-auto">
+                Comprenez votre Plan Local d'Urbanisme en quelques questions.
+                <br class="hidden sm:block" />
+                Réponses précises, basées sur le règlement de votre commune.
+            </p>
+        </div>
+
+        <!-- City Selector + Input -->
+        <div class="max-w-xl mx-auto space-y-3">
+            <div class="relative">
+                <select
+                    id="city-select"
+                    class="w-full appearance-none bg-white rounded-xl px-4 py-3 pr-10 border border-slate-200 text-sm text-slate-700 shadow-sm focus:border-amber-400 focus:ring-2 focus:ring-amber-100 outline-none transition-all cursor-pointer"
+                >
+                    <option value="rouen">Rouen — PLU de la commune</option>
+                </select>
+                <div class="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none">
+                    <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </div>
+            </div>
+
+            <form
+                hx-post="/chat"
+                hx-include="#city-select"
+                hx-target="#page-content"
+                hx-swap="outerHTML"
+                hx-indicator="#send-btn"
+            >
+                <div class="flex items-center gap-3 bg-white rounded-2xl px-5 py-4 border border-slate-200 shadow-sm focus-within:border-amber-400 focus-within:shadow-md focus-within:ring-2 focus-within:ring-amber-100 transition-all">
+                    <input
+                        type="text"
+                        name="message"
+                        placeholder="Décrivez votre projet d'urbanisme..."
+                        class="flex-1 bg-transparent text-slate-700 placeholder-slate-400 outline-none text-base"
+                        autocomplete="off"
+                        required
+                    />
+                    <button id="send-btn" type="submit" class="flex-shrink-0 w-9 h-9 rounded-xl bg-amber-500 text-white flex items-center justify-center hover:bg-amber-600 active:scale-95 transition-all">
+                        <svg class="w-4 h-4 send-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                        </svg>
+                        <svg class="w-4 h-4 loading-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Capabilities -->
+        <div class="max-w-2xl mx-auto">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-left">
+                <div class="bg-white rounded-xl p-4 border border-slate-100 shadow-sm">
+                    <div class="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center mb-3">
+                        <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-sm font-semibold text-slate-800 mb-1">Règlement PLU</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">Interprétez les articles et règles applicables à votre projet</p>
+                </div>
+                <div class="bg-white rounded-xl p-4 border border-slate-100 shadow-sm">
+                    <div class="w-8 h-8 rounded-lg bg-purple-50 flex items-center justify-center mb-3">
+                        <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 10l7-7m-7 7V2m7 7V2"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-sm font-semibold text-slate-800 mb-1">Cartes & Zonage</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">Comprenez le zonage, les secteurs et les affectations du territoire</p>
+                </div>
+                <div class="bg-white rounded-xl p-4 border border-slate-100 shadow-sm">
+                    <div class="w-8 h-8 rounded-lg bg-emerald-50 flex items-center justify-center mb-3">
+                        <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-sm font-semibold text-slate-800 mb-1">Conformité</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">Validez la conformité de votre projet avant de déposer votre dossier</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{end}}

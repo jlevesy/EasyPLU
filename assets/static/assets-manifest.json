@@ -1,0 +1,21 @@
+{
+  "src/css/style.css": {
+    "file": "style-Cqcy0xEt.css",
+    "name": "style",
+    "names": [
+      "style.css"
+    ],
+    "src": "src/css/style.css",
+    "isEntry": true
+  },
+  "src/img/gopher.png": {
+    "file": "gopher-oT6vuwLX.png",
+    "src": "src/img/gopher.png"
+  },
+  "src/js/layout.js": {
+    "file": "layout-B5klBL9s.js",
+    "name": "layout",
+    "src": "src/js/layout.js",
+    "isEntry": true
+  }
+}

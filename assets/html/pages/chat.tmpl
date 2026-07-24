@@ -1,0 +1,231 @@
+{{define "page:title"}}EasyPLU — Conversation PLU{{end}}
+
+{{define "page:content"}}
+<style>
+.message-enter {
+    animation: fadeInUp 0.3s ease-out forwards;
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
+
+<div class="h-screen flex">
+    <!-- Sidebar -->
+    <aside class="hidden md:flex w-72 bg-slate-900 text-white flex-col">
+        <div class="p-5 border-b border-slate-700">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-amber-500 flex items-center justify-center">
+                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="font-semibold text-sm tracking-tight">EasyPLU</h1>
+                    <p class="text-[10px] text-slate-400">Assistant PLU IA</p>
+                </div>
+            </div>
+        </div>
+        <div class="px-5 py-2">
+            <div class="flex items-center gap-2 text-xs text-slate-400">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                <span>Rouen</span>
+            </div>
+        </div>
+        <nav class="flex-1 p-3 space-y-1">
+            <a href="/" class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-slate-800 text-white text-sm font-medium">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                </svg>
+                Nouvelle conversation
+            </a>
+        </nav>
+        <div class="p-4 border-t border-slate-700">
+            <div class="text-[11px] text-slate-500 space-y-1.5">
+                <p>Comprendre les règlements</p>
+                <p>Interpréter les cartes</p>
+                <p>Conseils de conformité</p>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="flex-1 flex flex-col">
+        <!-- Mobile header -->
+        <div class="md:hidden flex items-center gap-3 px-4 py-3 bg-slate-900 text-white border-b border-slate-700">
+            <div class="w-8 h-8 rounded-lg bg-amber-500 flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                </svg>
+            </div>
+            <h1 class="font-semibold text-sm">EasyPLU — Rouen</h1>
+        </div>
+
+        <!-- Messages -->
+        <div class="flex-1 overflow-y-auto">
+            <div class="max-w-3xl mx-auto px-4 py-6 space-y-6">
+                <div class="text-center py-6 sm:py-10">
+                    <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-amber-500 mb-4 shadow-lg shadow-amber-500/20">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                        </svg>
+                    </div>
+                    <h2 class="font-display text-2xl sm:text-3xl font-bold text-slate-800 mb-2">
+                        EasyPLU — Rouen
+                    </h2>
+                    <p class="text-slate-500 text-sm sm:text-base max-w-md mx-auto leading-relaxed">
+                        Votre assistant intelligent pour le PLU de Rouen.
+                        Comprenez les règlements, les cartes et les documents d'urbanisme.
+                    </p>
+                </div>
+
+                <div class="space-y-5">
+                    <div class="flex justify-end message-enter">
+                        <div class="max-w-[80%] sm:max-w-[70%] bg-slate-800 text-white rounded-2xl rounded-br-md px-4 py-3 shadow-sm">
+                            <p class="text-sm leading-relaxed">
+                                Je souhaite construire une extension de 30m² pour mon atelier. Mon terrain se situe en NAC1 sur le zonage de la commune de Rouen. Quelles sont les règles applicables ?
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex message-enter">
+                        <div class="flex-shrink-0 mr-3 mt-1">
+                            <div class="w-7 h-7 rounded-lg bg-amber-500 flex items-center justify-center">
+                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="max-w-[80%] sm:max-w-[70%] bg-white rounded-2xl rounded-bl-md px-4 py-3 shadow-sm border border-slate-100">
+                            <p class="text-sm leading-relaxed text-slate-700 mb-3">
+                                Excellent projet ! Pour une construction en <strong class="text-slate-800">zone NAC1 (zone d'activité économique et artisanale)</strong> sur Rouen, voici les points clés du règlement municipal :
+                            </p>
+                            <div class="bg-slate-50 rounded-lg p-3 space-y-2 mb-3">
+                                <div class="flex items-start gap-2">
+                                    <svg class="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                    <span class="text-sm text-slate-600"><strong class="text-slate-800">OCC — Emprise au sol :</strong> Vérifiez le COCC maximum autorisé</span>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <svg class="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                    <span class="text-sm text-slate-600"><strong class="text-slate-800">HA — Hauteur :</strong> La hauteur maximale est généralement exprimée au faîte</span>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <svg class="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                    <span class="text-sm text-slate-600"><strong class="text-slate-800">CH — Classement en hauteur :</strong> Attention aux restrictions de gabarit</span>
+                                </div>
+                            </div>
+                            <p class="text-sm leading-relaxed text-slate-600">
+                                Pour une extension de 30m², vous serez probablement dans le champ de la <strong class="text-slate-800">déclaration de travaux</strong> (entre 3 et 40m²).
+                            </p>
+                            <p class="text-[11px] text-slate-400 mt-2">Basé sur le PLU de Rouen — vérifiez toujours le document officiel</p>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-end message-enter">
+                        <div class="max-w-[80%] sm:max-w-[70%] bg-slate-800 text-white rounded-2xl rounded-br-md px-4 py-3 shadow-sm">
+                            <p class="text-sm leading-relaxed">
+                                Merci ! Et concernant les reculs par rapport aux limites séparatives ?
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex message-enter">
+                        <div class="flex-shrink-0 mr-3 mt-1">
+                            <div class="w-7 h-7 rounded-lg bg-amber-500 flex items-center justify-center">
+                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="max-w-[80%] sm:max-w-[70%] bg-white rounded-2xl rounded-bl-md px-4 py-3 shadow-sm border border-slate-100">
+                            <p class="text-sm leading-relaxed text-slate-700 mb-2">
+                                Pour le PLU de Rouen, les <strong class="text-slate-800">reculs (ou retraits)</strong> en zone NAC sont définis comme suit :
+                            </p>
+                            <div class="bg-amber-50 border border-amber-100 rounded-lg p-3 mb-3">
+                                <p class="text-sm text-amber-900">
+                                    <strong class="text-slate-800">📐 Recul standard :</strong> 5m par rapport à la limite séparative est courant en zone NAC, mais certains PLU imposent des retraits spécifiques.
+                                </p>
+                            </div>
+                            <p class="text-sm text-slate-600">
+                                Précisez la <strong class="text-slate-800">commune exacte</strong> pour que je puisse vous donner les valeurs du règlement applicable.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-2 pb-4">
+                    <p class="text-center text-xs text-slate-400 mb-3">Autres questions fréquentes</p>
+                    <div class="flex flex-wrap justify-center gap-2">
+                        <button class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-200 bg-white text-sm text-slate-600 hover:border-amber-300 hover:text-amber-700 transition-colors shadow-sm">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Quelle surface plancher maximale ?
+                        </button>
+                        <button class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-200 bg-white text-sm text-slate-600 hover:border-amber-300 hover:text-amber-700 transition-colors shadow-sm">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                            Quelles pièces compter dans la SPPL ?
+                        </button>
+                        <button class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-200 bg-white text-sm text-slate-600 hover:border-amber-300 hover:text-amber-700 transition-colors shadow-sm">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0m6.997-5.003l-3 1m0 0l3 9a5.002 5.002 0 006.001 0m-18.998-5.003l3 1m0 0l-3 9a5.002 5.002 0 006.001 0m18.997-5.003l-3 1"/>
+                            </svg>
+                            Qu'est-ce qu'un PLUi ?
+                        </button>
+                        <button class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-200 bg-white text-sm text-slate-600 hover:border-amber-300 hover:text-amber-700 transition-colors shadow-sm">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                            </svg>
+                            Permis ou déclaration de travaux ?
+                        </button>
+                    </div>
+                </div>
+
+                <div class="h-4"></div>
+            </div>
+        </div>
+
+        <!-- Input -->
+        <div class="border-t border-slate-200 bg-white px-4 py-3">
+            <div class="max-w-3xl mx-auto">
+                <form class="flex items-center gap-3">
+                    <div class="flex-1 flex items-center gap-3 bg-slate-50 rounded-xl px-4 py-3 border border-slate-200 focus-within:border-amber-400 focus-within:ring-2 focus-within:ring-amber-100 transition-all">
+                        <button type="button" class="flex-shrink-0 text-slate-400 hover:text-slate-600 transition-colors" title="Joindre un document">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"/>
+                            </svg>
+                        </button>
+                        <input
+                            type="text"
+                            placeholder="Posez votre question sur le PLU..."
+                            class="flex-1 bg-transparent text-sm text-slate-700 placeholder-slate-400 outline-none"
+                            autocomplete="off"
+                            disabled
+                        />
+                        <button type="button" class="flex-shrink-0 text-slate-300 cursor-not-allowed" title="Envoyer">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+                <p class="text-center text-[11px] text-slate-400 mt-2">
+                    EasyPLU utilise l'IA pour analyser les documents d'urbanisme. Vérifiez toujours les informations avec le règlement officiel.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{{end}}

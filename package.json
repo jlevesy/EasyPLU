@@ -1,0 +1,24 @@
+{
+  "name": "easyplu",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "EasyPlu",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "serve": "npm run build && go run ./cmd/web",
+    "build": "vite build",
+    "build-watch": "vite build --watch",
+    "lint": "eslint ./frontend",
+    "fmt": "prettier --write ./frontend",
+    "fmt-check": "prettier --check ./frontend"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "htmx.org": "^2.0.10",
+    "sass-embedded": "^1.100.0",
+    "tailwindcss": "^4.3.3",
+    "vite": "^8.1.5"
+  }
+}
